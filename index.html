@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monitoramento de Caixa d'Água</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        /* tamanho adequado */
+        #map {
+            height: 400px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>COSANPA</h1>
+        <nav>
+            <ul>
+                <li><a href="#map">Mapeamento</a></li>
+                <li><a href="#monitor">Monitoramento</a></li>
+                <li><a href="#edit">Edição</a></li>
+                <li><a href="#view">Visualizar Dados</a></li>
+            </ul>
+        </nav>
+        <!-- Botão para abrir o modal -->
+        <button id="add-point-btn">Adicionar Ponto</button>
+    </header>
+
+    <main>
+        <!-- Seção de Mapeamento -->
+        <section id="map">
+            <h2>Mapeamento de Caixa d'Água</h2>
+            <div id="map-container">
+                <div id="map"></div>
+            </div>
+        </section>
+
+        <!-- Seção de Monitoramento -->
+        <section id="monitor">
+            <h2>Monitoramento</h2>
+            <div id="monitoring-data">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Descrição</th>
+                            <th>Volume</th>
+                        </tr>
+                    </thead>
+                    <tbody id="data-table-body">
+                        <!-- Dados serão carregados via JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Seção de Edição -->
+        <section id="edit">
+            <h2>Edição de Dados</h2>
+            <form id="data-form">
+                <input type="hidden" id="id" name="id">
+                
+                <label for="description">Descrição:</label>
+                <input type="text" id="description" name="description" required>
+
+                <label for="volume">Volume:</label>
+                <input type="number" id="volume" name="volume" step="0.01" required>
+
+                <label for="latitude">Latitude:</label>
+                <input type="text" id="latitude" name="latitude" required>
+
+                <label for="longitude">Longitude:</label>
+                <input type="text" id="longitude" name="longitude" required>
+
+                <button type="submit">Salvar</button>
+            </form>
+        </section>
+
+        <!-- Seção de Visualização -->
+        <section id="view">
+            <h2>Visualizar Dados Registrados</h2>
+            <div id="view-data">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Descrição</th>
+                            <th>Volume</th>
+                            <th>Latitude</th>
+                            <th>Longitude</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="view-table-body">
+                        <!-- Dados serão carregados via JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Monitoramento de Caixa d'Água</p>
+    </footer>
+
+    <!-- Modal de Adicionar Ponto -->
+    <div id="add-point-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="close-modal-btn">&times;</span>
+            <h2>Adicionar Ponto</h2>
+            <form id="add-point-form">
+                <label for="name">Nome:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="description">Descrição:</label>
+                <input type="text" id="description" name="description" required>
+
+                <label for="latitude">Latitude:</label>
+                <input type="text" id="latitude" name="latitude" required>
+
+                <label for="longitude">Longitude:</label>
+                <input type="text" id="longitude" name="longitude" required>
+
+                <button type="submit">Salvar Ponto</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
