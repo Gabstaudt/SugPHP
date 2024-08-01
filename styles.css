@@ -5,6 +5,7 @@ body {
     padding: 0;
     box-sizing: border-box;
 }
+
 /* Estilo para o modal */
 .modal {
     display: none; /* Inicialmente escondido */
@@ -42,14 +43,23 @@ body {
     cursor: pointer;
 }
 
-#add-point-btn {
-    margin: 0 20px;
+/* Estilo para os botões */
+button {
     padding: 10px 20px;
     background-color: #007bff;
     color: white;
     border: none;
     cursor: pointer;
     border-radius: 5px;
+    margin: 5px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#add-point-btn {
     position: absolute;
     top: 10px;
     right: 10px;
@@ -91,16 +101,6 @@ nav ul li a {
     text-decoration: none;
     color: #007bff;
 }
-
-#add-point-btn {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
 
 main {
     padding: 1rem;
@@ -152,14 +152,40 @@ form input {
     padding: 8px;
 }
 
-button {
-    background-color: #333;
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-}
+@media (max-width: 768px) {
+    .modal-content {
+        width: 90%;
+        margin: 30% auto;
+    }
 
-button:hover {
-    background-color: #555;
+    .container {
+        padding: 10px;
+    }
+
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav ul li {
+        margin-bottom: 10px;
+    }
+
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    header h1 {
+        margin-bottom: 10px;
+    }
+
+    button {
+        width: 100%;
+        margin: 5px 0;
+    }
+
+    #add-point-btn {
+        position: static;
+        margin: 10px 0;
+    }
 }
